@@ -1,5 +1,27 @@
 .post-input-wrapper {
+    position: relative;
+
     width: 100%;
+
+    z-index: 10;
+}
+
+.post-input-wrapper::before {
+    position: absolute;
+    top: -0.5em;
+    left: 1.5em;
+
+    content: '';
+
+    height: 30px;
+    width: 30px;
+
+    border-radius: 2pt;
+
+    transform: rotate(45deg);
+    z-index: -5;
+
+    background-color: var(--background-color);
 }
 
 .post-input-content {

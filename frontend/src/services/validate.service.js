@@ -1,4 +1,4 @@
-export function validateInput(input, params) {
+export default function validateInput(input, params) {
     let validityMessage = []
 
     params.forEach(param => {

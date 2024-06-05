@@ -4,7 +4,7 @@
     width: 100%;
 
     display: none;
-    grid-template-columns: 90% 1fr;
+    grid-template-columns: 9fr 1fr;
     gap: 1em;
 }
 
@@ -28,6 +28,19 @@
 
 .survey-title:focus {
     outline: none;
+}
+
+.survey-alert {
+    display: none;
+
+    grid-column-start: span 2;
+
+    padding: 0.5em;
+    box-sizing: border-box;
+
+    color: red;
+    font-size: 0.75em;
+    font-weight: 500;
 }
 
 .survey-form-add-button {

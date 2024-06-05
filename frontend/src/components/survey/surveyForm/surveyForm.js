@@ -4,38 +4,33 @@ export default function surveyForm() {
     const wrapper = document.createElement('div')
     wrapper.classList.add('survey-form-wrapper')
 
-    // Title
+    // Título
     const title = document.createElement('input')
     title.classList.add('survey-title')
     title.placeholder = 'Título de la encuesta'
 
     wrapper.appendChild(title)
 
-    // Initial option
+    // Alerta
+    const alert = document.createElement('span')
+    alert.classList.add('survey-alert')
+    alert.textContent = '*La encuesta necesita un mínimo de 2 opciones y un título'
+
+    wrapper.appendChild(alert)
+
+    // Opción por defecto
     addOption(wrapper, 'Opción 1')
 
     return wrapper
 }
 
-function addOption(wrapper, label, isLast=false) {
-    const option = setSurveyOption(label)
-    wrapper.appendChild(option)
+function handleClick(wrapper, button) {
+    // Deshabilitamos el botón de agregar
+    button.disabled = true
 
-    // Add option button
-    if (!isLast) {
-        const add = document.createElement('button')
-        add.classList.add('survey-form-add-button')
-        add.innerHTML = `<span class="add-icon material-symbols-outlined">add</span>`
-        add.onclick = () => handleClick(wrapper)
-        wrapper.appendChild(add)
-    }
-}
-
-function handleClick(wrapper) {
     // Chequear cuántas opciones hay
     const options = wrapper.querySelectorAll('.survey-form-add-button')
     const lastOption = options[options.length - 1]
-    lastOption.classList.add('add-disabled')
 
     // Generar el nombre del label en base al número de opciones
     let label;
@@ -47,12 +42,60 @@ function handleClick(wrapper) {
 
     if (options.length === 3) {
         addOption(wrapper, label, true)
+        lastOption.classList.add('add-disabled')
+
     } else if (options.length < 3) {
         addOption(wrapper, label)
+        lastOption.classList.add('add-disabled')
 
+    } else {
+        resetOptions(wrapper)
     }
 }
 
-function validate() {
+function addOption(wrapper, label, isLast=false) {
+    const option = setSurveyOption(label)
 
+    const add = document.createElement('button')
+    add.classList.add('survey-form-add-button')
+    add.innerHTML = `<span class="add-icon material-symbols-outlined">${isLast ? 'restart_alt' : 'add'}</span>`
+    add.onclick = () => handleClick(wrapper, add)
+
+    wrapper.appendChild(option)
+    wrapper.appendChild(add)
+}
+
+export function resetOptions(wrapper) {
+    console.log("RESETTING")
+    // Recogemos todas las opciones y todos los botones de agregar 
+    const title = wrapper.querySelector('.survey-title')
+    const options = wrapper.querySelectorAll('.survey-option-wrapper')
+    const addButtons = wrapper.querySelectorAll('.survey-form-add-button')
+    const defaultOption = options[0]
+    const defaultOptionAddButton = addButtons[0]
+    const alert = wrapper.querySelector('.survey-alert')
+
+    // Eliminamos todas las opciones y botones de agregar exceptuando el primero
+    for(let i = 1; i < options.length; i++) {
+        wrapper.removeChild(options[i])
+        wrapper.removeChild(addButtons[i])
+    }
+
+    // Rehabilitamos el botón de agregar de la opción por defecto
+    defaultOptionAddButton.classList.remove('add-disabled')
+    defaultOptionAddButton.disabled = false
+
+    // Quitamos las clases referentes a la validación
+    title.classList.remove('valid')
+    title.classList.remove('invalid')
+
+    defaultOption.querySelector('.survey-option-input').classList.remove('valid')
+    defaultOption.querySelector('.survey-option-input').classList.remove('invalid')
+
+    alert.style.display = 'none'
+    
+    // Limpiamos los 'values' de los inputs
+    title.value = ''
+    defaultOption.querySelector('.survey-option-input').value = ''
+    defaultOption.querySelector('.survey-option-counter').textContent = '0/25'
 }

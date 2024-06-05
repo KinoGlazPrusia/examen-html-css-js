@@ -1,7 +1,7 @@
-.post-form-wrapper {
+.post-card-wrapper {
     padding: 1em;
     box-sizing: border-box;
-
+    
     width: 100%;
     min-width: 350px;
 
@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.5em;
 
     border-radius: 5pt;
 
@@ -18,6 +17,6 @@
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-.post-form-wrapper .avatar-wrapper {
+.post-card-wrapper .avatar-wrapper {
     align-self: start;
 }

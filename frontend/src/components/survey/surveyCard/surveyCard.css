@@ -1,0 +1,113 @@
+.survey-card-wrapper {
+    padding: 1em;
+    box-sizing: border-box;
+
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.survey-card-title {
+    align-self: start;
+}
+
+.survey-card-option-wrapper {
+    padding: 1em;
+    box-sizing: border-box;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5pt;
+}
+
+.survey-card-option {
+    position: relative;
+
+    cursor: pointer;
+
+    padding: 0.75em;
+    padding-inline: 1em;
+    box-sizing: border-box;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    border: 2px solid rgba(212, 212, 212, 0);
+    border-radius: 5pt;
+
+    transition: 300ms;
+
+    z-index: 10;
+    overflow: hidden;
+}
+
+.survey-card-option:hover {
+    background-color: var(--button-translucid-color);
+}
+
+.survey-card-option-label {
+    color: var(--text-primary);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.survey-card-option-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    transform: translateX(-100%);
+
+    background-color: var(--brand-translucid-color); /* La opción que vaya por delante deberá llevar el accent-color */
+
+    z-index: -5;
+
+    transition: 300ms;
+}
+
+.survey-card-option-bar::before {
+    position: absolute;
+    top: 0;
+    right: -15px;
+
+    height: 100%;
+    aspect-ratio: 1/1;
+
+    border-radius: 5pt;
+
+    content: '';
+
+    transform: rotate(45deg);
+
+    background-color: var(--brand-translucid-color);
+
+    transition: 300ms;
+}
+
+.survey-card-votes {
+    color: var(--text-tertiary);
+    font-size: 0.75em;
+}
+
+.most-voted .survey-card-option-bar, .most-voted .survey-card-option-bar::before {
+    background-color: var(--brand-color);
+}

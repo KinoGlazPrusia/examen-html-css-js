@@ -1,0 +1,41 @@
+.avatar-wrapper {
+    padding: 1em;
+
+    display: grid;
+    grid-template-areas: 
+    "a b b"
+    "a c c";
+    grid-template-columns: 50px repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1em;
+
+    border-radius: 8pt;
+
+    background-color: var(--primary-color);
+}
+
+.avatar-img {
+    height: 50px;
+    width: 50px;
+
+    grid-area: a;
+}
+
+.avatar-name {
+    grid-area: b;
+
+    justify-self: center;
+    align-self: center;
+
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.avatar-username {
+    grid-area: c;
+
+    justify-self: center;
+    align-self: center;
+
+    font-size: 0.75em;
+}

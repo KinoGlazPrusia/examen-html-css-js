@@ -1,0 +1,19 @@
+.theme-light {
+    --brand-color: rgba(7,180,255,1);
+    
+    --primary-color: white;
+
+    --accent-color: rgb(195, 37, 209);
+
+    --background-color: rgba(228,236,243,1);
+
+    --button-color: var(--brand-color);
+    --button-translucid-color: rgba(7,180,255,0.2);
+    --button-hover-color: rgb(0, 121, 173);
+    --button-text-color: white;
+
+    --text-primary: rgb(41, 41, 41);
+    --text-secondary: rgb(88, 88, 88);
+    --text-tertiary: rgb(143, 143, 143);
+}
+

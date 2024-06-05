@@ -1,0 +1,19 @@
+.post-input-wrapper {
+    width: 100%;
+}
+
+.post-input-content {
+    padding: 1em;
+    box-sizing: border-box;
+
+    width: 100%;
+
+    border: none;
+    border-radius: 5pt;
+
+    background-color: var(--background-color);
+}
+
+.post-input-content:focus {
+    outline: none;
+}

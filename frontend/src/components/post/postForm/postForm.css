@@ -1,0 +1,20 @@
+.post-form-wrapper {
+    padding: 1em;
+    box-sizing: border-box;
+
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    border-radius: 5pt;
+
+    background-color: var(--primary-color);
+}
+
+.post-form-wrapper .avatar-wrapper {
+    align-self: start;
+}

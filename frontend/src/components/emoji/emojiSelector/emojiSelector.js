@@ -88,9 +88,21 @@ function handleTabClick(tabArray, tab, container, dataset) {
 }
 
 function handleEmojiClick(emoji){
-    console.log(emoji)
+    // Convertimos el código del emoji a hexadecimal (se podría hacer en el loadDataset() directamente)
+    // Reimplementarlo
+    const emojiDecimalCode = Number(emoji.substring(2, emoji.length - 1))
+    const emojiHexCode = emojiDecimalCode.toString(16)
+    
+    // Seleccionar el input que está en 'focus'
+    const active = document.activeElement
+    const surveyTitle = document.querySelector('.survey-title')
     const postInput = document.querySelector('.post-input-content')
-    postInput.value += emoji
+
+    if (active === surveyTitle) {
+        surveyTitle.value += String.fromCodePoint("0x" + emojiHexCode)
+    } else {
+        postInput.value += String.fromCodePoint("0x" + emojiHexCode)
+    }
 }
 
 function loadDataset(initialIndex, finalIndex) {

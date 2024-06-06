@@ -91,6 +91,7 @@ function handleSubmit() {
 
     if (!validity) return
 
+    // Añadimos la survey
     appendSurvey(document.querySelector('.container'), {
         title: title.value,
         options: Array.from(options).map(option => option.value)
@@ -104,5 +105,8 @@ function appendSurvey(wrapper, survey) {
     const surveyCard = setSurveyCard(survey)
     const postCard = setPostCard(surveyCard)
 
-    wrapper.appendChild(postCard)
+    const lastPost = wrapper.childNodes[2]
+    console.log(lastPost)
+
+    wrapper.insertBefore(postCard, lastPost)
 }

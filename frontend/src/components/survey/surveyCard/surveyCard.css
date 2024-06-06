@@ -16,6 +16,7 @@
 
     color: var(--text-primary);
     font-size: 0.85em;
+    font-weight: 500;
 }
 
 .survey-card-option-wrapper {

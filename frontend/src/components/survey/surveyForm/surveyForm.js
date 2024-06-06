@@ -11,6 +11,13 @@ export default function surveyForm() {
 
     wrapper.appendChild(title)
 
+    // Selector de emojis para el título
+    /* const emoji = document.createElement('span')
+    emoji.classList = 'survey-title-emoji material-symbols-outlined'
+    emoji.textContent = 'sentiment_very_satisfied'
+
+    wrapper.appendChild(emoji) */
+
     // Alerta
     const alert = document.createElement('span')
     alert.classList.add('survey-alert')
@@ -66,7 +73,6 @@ function addOption(wrapper, label, isLast=false) {
 }
 
 export function resetOptions(wrapper) {
-    console.log("RESETTING")
     // Recogemos todas las opciones y todos los botones de agregar 
     const title = wrapper.querySelector('.survey-title')
     const options = wrapper.querySelectorAll('.survey-option-wrapper')

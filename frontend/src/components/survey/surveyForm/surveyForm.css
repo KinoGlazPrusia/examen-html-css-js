@@ -28,6 +28,25 @@
     background-color: var(--background-color);
 }
 
+.survey-title-emoji {
+    cursor: pointer;
+
+    display: grid;
+    place-content: center;
+
+    color: var(--brand-color);
+
+    transition: 300ms;
+}
+
+.survey-title-emoji:hover {
+    color: var(--button-hover-color);
+}
+
+.survey-title-emoji:active {
+    color: var(--accent-color);
+}
+
 .survey-title:focus {
     outline: none;
 }

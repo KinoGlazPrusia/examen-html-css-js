@@ -1,3 +1,5 @@
+import setEmojiSelector from "../../emoji/emojiSelector/emojiSelector.js"
+
 export default function postActions() {
     const wrapper = document.createElement('div')
     wrapper.classList.add('post-action-wrapper')
@@ -8,11 +10,16 @@ export default function postActions() {
         <span class="image-icon material-symbols-outlined disabled">imagesmode</span>
         <span class="gif-icon material-symbols-outlined disabled">gif_box</span>
         <span class="survey-icon material-symbols-outlined">format_list_bulleted</span>
-        <span class="emoji-icon material-symbols-outlined disabled">sentiment_very_satisfied</span>
+        <span class="emoji-icon material-symbols-outlined">sentiment_very_satisfied</span>
         <span class="calendar-icon material-symbols-outlined disabled">calendar_month</span>
         <span class="location-icon material-symbols-outlined disabled">location_on</span>
     `
 
+    // Abrir el modal de emojis
+    const emojiAction = icons.querySelector('.emoji-icon')
+    emojiAction.onclick = () => emojiHandleOnClick(wrapper, emojiAction)
+
+    // Abrir la encuesta
     const surveyAction = icons.querySelector('.survey-icon')
     surveyAction.onclick = () => surveyHandleOnClick(surveyAction)
 
@@ -25,6 +32,17 @@ export default function postActions() {
     wrapper.appendChild(submit)
 
     return wrapper
+}
+
+function emojiHandleOnClick(wrapper, icon) {
+    if (icon.classList.contains('active')) {
+        icon.classList.remove('active')
+        wrapper.removeChild(wrapper.lastChild)
+    } else {
+        icon.classList.add('active')
+        const emojiModal = setEmojiSelector()
+        wrapper.appendChild(emojiModal)
+    }
 }
 
 function surveyHandleOnClick(icon) {

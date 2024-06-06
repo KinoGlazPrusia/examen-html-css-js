@@ -6,7 +6,7 @@ export default function postCard(contentElement) {
 
     // Avatar
     const avatar = setAvatar({
-        img: 'https://avatar.iran.liara.run/public',
+        img: 'https://i.pravatar.cc/150',
         name: 'Pepito',
         lastname: 'Martínez',
         username: 'pepitomartinez'

@@ -45,7 +45,7 @@ function addOption(wrapper, labelValue) {
     const bar = document.createElement('div')
     bar.classList.add('survey-card-option-bar')
 
-    // Votos (ocultos)
+    // Votos (ocultos) (aquí guardamos los datos de manera temporal como un estado)
     const votes = document.createElement('span')
     votes.classList.add('survey-card-option-votes')
     votes.textContent = '0'
@@ -62,9 +62,11 @@ function addOption(wrapper, labelValue) {
 }
 
 function handleVote(wrapper, option) {
+    // Recuperamos el objeto que contiene el total de votos y los votos de la opción clicada
     const totalVotes = wrapper.parentNode.querySelector('.survey-card-votes')
     const optionVotes = option.querySelector('.survey-card-option-votes')
 
+    // Lo actualizamos sumando 1
     totalVotes.textContent = `${Number(totalVotes.textContent.split(' ')[0]) + 1} votes`
     optionVotes.textContent = `${Number(optionVotes.textContent.split(' ')[0]) + 1}`
 

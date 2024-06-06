@@ -13,6 +13,9 @@
 
 .survey-card-title {
     align-self: start;
+
+    color: var(--text-primary);
+    font-size: 0.85em;
 }
 
 .survey-card-option-wrapper {
@@ -63,7 +66,7 @@
 
 .survey-card-option-label {
     color: var(--text-primary);
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 500;
 }
 

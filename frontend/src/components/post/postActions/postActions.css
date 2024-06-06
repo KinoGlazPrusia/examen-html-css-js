@@ -1,4 +1,6 @@
 .post-action-wrapper {
+    position: relative;
+    
     width: 100%;
 
     display: flex;
@@ -61,7 +63,7 @@
 }
 
 .disabled, .disabled:hover, .disabled:active {
-    color: lightgray !important;
+    color: var(--text-tertiary) !important;
 }
 
 .active {

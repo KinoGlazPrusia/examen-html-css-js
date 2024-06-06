@@ -15,7 +15,7 @@ export default function postForm() {
     // Avatar
     // Estos datos se recogerían de una llamada a la API o un contexto global
     const avatar = setAvatar({
-        img: 'https://avatar.iran.liara.run/public',
+        img: 'https://i.pravatar.cc/150',
         name: 'Pepito',
         lastname: 'Martínez',
         username: 'pepitomartinez'
@@ -38,6 +38,7 @@ export default function postForm() {
     wrapper.appendChild(input)
     wrapper.appendChild(actions)
     wrapper.appendChild(survey)
+    // Añadir más adelante el modal de los emojis
 
     return wrapper
 }

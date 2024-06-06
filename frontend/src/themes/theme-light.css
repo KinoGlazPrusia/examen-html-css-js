@@ -16,5 +16,7 @@
     --text-primary: rgb(53, 53, 53);
     --text-secondary: rgb(88, 88, 88);
     --text-tertiary: rgb(143, 143, 143);
+
+    --toogle-button-color: var(--brand-translucid-color);
 }
 

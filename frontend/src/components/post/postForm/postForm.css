@@ -3,7 +3,7 @@
     box-sizing: border-box;
 
     width: 100%;
-    min-width: 350px;
+    min-width: 400px;
 
     display: flex;
     flex-direction: column;
